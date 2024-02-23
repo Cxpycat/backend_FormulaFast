@@ -1,0 +1,7 @@
+.adminpanel-flag {
+    max-width: 30px;
+    height: 20px;
+}
+img[src=""] {
+    display: none; !important;
+}
