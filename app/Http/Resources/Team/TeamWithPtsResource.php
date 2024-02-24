@@ -7,7 +7,7 @@ use App\Models\Pilot;
 use App\Models\ResultRace;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TeamResource extends JsonResource
+class TeamWithPtsResource extends JsonResource
 {
     public function toArray($request)
     {
@@ -15,6 +15,8 @@ class TeamResource extends JsonResource
             'title' => $this->title,
             'color' => $this->color,
             'country' => CountryResource::make($this->country),
+            'all_pts' => $this->AllPts,
+            'grand_prix_result' => collect($this->GrandPrixResult),
         ];
     }
 }

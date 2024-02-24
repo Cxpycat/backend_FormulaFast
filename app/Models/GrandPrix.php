@@ -16,4 +16,9 @@ class GrandPrix extends Model
     {
         return $this->belongsTo(Country::class, 'country_id', 'id');
     }
+
+    public function track()
+    {
+        return $this->belongsTo(Track::class, 'track_id', 'id');
+    }
 }

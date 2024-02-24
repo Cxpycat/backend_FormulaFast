@@ -19,7 +19,7 @@ class PilotResource extends JsonResource
             'team' => TeamResource::make($this->team),
             'country' => CountryResource::make($this->country),
             'grand_prix_result' => $this->GrandPrixResult,
-            'All_pts' => $this->AllPts,
+            'all_pts' => $this->AllPts,
         ];
     }
 }

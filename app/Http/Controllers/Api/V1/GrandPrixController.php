@@ -15,7 +15,6 @@ class GrandPrixController extends Controller
     public function index(Request $request)
     {
         //TODO get параметры не приходят почему то
-        $year = $request->input('year') ?? 2023;
 
         $data = GrandPrix::all();
 

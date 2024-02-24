@@ -14,8 +14,8 @@ class GrandPrixResource extends JsonResource
         return [
             "id" => $this->id,
             "title" => $this->title,
-            "title_track" => $this->title_track,
-            "img" => $this->img,
+            "title_track" => $this->track->title,
+            "img" => $this->track->img,
             "country" => CountryResource::make($this->country),
         ];
     }

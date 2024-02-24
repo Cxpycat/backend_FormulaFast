@@ -28,14 +28,10 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
 
 Route::post('/users/signup', '\App\Http\Controllers\Api\User\UserController@storeUser');
 
-//Route::get('/races', 'App\Http\Controllers\Api\V1\Race\RaceController@index')->name('index.races')->middleware('api');
-
 Route::get('/grand_prix', 'App\Http\Controllers\Api\V1\GrandPrixController@index')->name('index.grand_prix');
 Route::get('/schedule', 'App\Http\Controllers\Api\V1\ScheduleController@index')->name('index.schedule');
+Route::get('/pilots', 'App\Http\Controllers\Api\V1\PilotController@index')->name('index.pilots');
+Route::get('/teams', 'App\Http\Controllers\Api\V1\TeamController@index')->name('index.teams');
 
-
-Route::get('/races', 'App\Http\Controllers\Api\V1\Race\RaceController@index')->name('index.races');
-Route::get('/pilots', 'App\Http\Controllers\Api\V1\Pilot\PilotController@index')->name('index.pilots');
-Route::get('/teams', 'App\Http\Controllers\Api\V1\Team\TeamController@index')->name('index.teams');
-Route::get('/news', 'App\Http\Controllers\Api\V1\News\NewsController@getNews');
-Route::get('/news/{news}', 'App\Http\Controllers\Api\V1\News\NewsController@getNewsById');
+Route::get('/news', 'App\Http\Controllers\Api\V1\NewsController@index')->name('index.news');
+Route::get('/news/{id}', 'App\Http\Controllers\Api\V1\NewsController@show')->name('show.news');

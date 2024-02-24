@@ -28,4 +28,9 @@ class Pilot extends Model
         return Pts::getAllPts('pilot_id', $this->id);
     }
 
+    public function getGrandPrixResultAttribute(): array
+    {
+        return Pts::getResultRaces('team_id', $this->id);
+    }
+
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGrandPrixesTable extends Migration
+class CreateNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateGrandPrixesTable extends Migration
      */
     public function up()
     {
-        Schema::create('grand_prixes', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 150);
-            $table->foreignId('country_id',)->constrained('countries');
-            $table->foreignId('track_id',)->constrained('tracks');
+            $table->string('title');
+            $table->text('text');
+            $table->string('img');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateGrandPrixesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grand_prixes');
+        Schema::dropIfExists('news');
     }
 }
