@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\User;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Api\User\Carbon;
-use App\Http\Controllers\Api\User\Storage;
-use App\Http\Controllers\Api\User\Str;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreRequest;
 use App\Http\Requests\User\UpdateRequest;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function storeUser(UpdateRequest $request)
+    public function storeUser(StoreRequest $request)
     {
         $data = $request->validated();
         $user = User::where('email', $data['email'])->first();
@@ -29,7 +29,7 @@ class UserController extends Controller
         return response(['access_token' => $token]);
     }
 
-    public function updateUser()
+    public function updateUser(UpdateRequest $request, User $user)
     {
         $data = $request->validated();
 
